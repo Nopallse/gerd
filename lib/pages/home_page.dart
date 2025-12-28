@@ -22,7 +22,7 @@ class HomePage extends StatelessWidget {
             children: [
               // Header dengan logo dan nama aplikasi
               _buildHeader(),
-
+              
               const SizedBox(height: 24.0),
 
               // Judul utama
@@ -56,45 +56,62 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _buildHeader() {
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.symmetric(vertical: 16.0),
-      decoration: BoxDecoration(
-        color: AppColors.primary.withOpacity(0.1),
-        borderRadius: BorderRadius.circular(12.0),
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(Icons.favorite, color: AppColors.primary, size: 24.0),
-              const SizedBox(width: 8.0),
-              Text(
-                'GERD Care',
-                style: TextStyle(
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.bold,
-                  color: AppColors.primary,
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 6.0),
-          Text(
-            'Klinik Unimuda',
-            style: TextStyle(
-              fontSize: 14.0,
-              fontWeight: FontWeight.w500,
+  return Container(
+    width: double.infinity,
+    padding: const EdgeInsets.symmetric(vertical: 16.0),
+    decoration: BoxDecoration(
+      color: AppColors.primary.withOpacity(0.1),
+      borderRadius: BorderRadius.circular(12.0),
+    ),
+    child: Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        // LOGO
+        Image.asset(
+          'assets/images/foods/logo-gerd.png',
+          height: 150,
+          fit: BoxFit.contain,
+        ),
+        const SizedBox(height: 12),
+
+        // TITLE
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.favorite,
               color: AppColors.primary,
+              size: 24.0,
             ),
+            const SizedBox(width: 8.0),
+            Text(
+              'GERD Care',
+              style: TextStyle(
+                fontSize: 20.0,
+                fontWeight: FontWeight.bold,
+                color: AppColors.primary,
+              ),
+            ),
+          ],
+        ),
+
+        const SizedBox(height: 6.0),
+
+        // SUBTITLE
+        Text(
+          'Klinik Unimuda',
+          style: TextStyle(
+            fontSize: 14.0,
+            fontWeight: FontWeight.w500,
+            color: AppColors.primary,
           ),
-        ],
-      ),
-    );
-  }
+        ),
+      ],
+    ),
+  );
+}
+
 
   Widget _buildMenuItems(BuildContext context) {
     return Column(
